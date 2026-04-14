@@ -18,7 +18,6 @@
   <ul class="nav-links">
     <li><a href="#abstract">Abstract</a></li>
     <li><a href="#capitoli">Capitoli</a></li>
-    <li><a href="#tecnologie">Tecnologie</a></li>
     <li><a href="#documenti">Documenti</a></li>
   </ul>
 </nav>
@@ -43,17 +42,43 @@
   </div>
 
   <div class="hero-cta">
-    <a href="relazione-tesi.pdf" class="btn btn-primary" onclick="openModal('tesi')">
+    <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal('tesi')">
       <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
       Leggi la Tesi
     </a>
-    <a href="presentazione-finale-tesi.pdf" class="btn btn-outline" onclick="openModal('slides')">
+    <a href="javascript:void(0)" class="btn btn-outline" onclick="openModal('slides')">
       <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
       Vedi Presentazione
     </a>
   </div>
   <div class="scroll-hint">Scorri</div>
 </header>
+
+<section id="documenti">
+  <p class="section-label">Archivio</p>
+  <h2 class="section-title">Documentazione di Progetto</h2>
+  <div class="doc-grid">
+    <div class="doc-card">
+      <div class="doc-icon">📄</div>
+      <h3 class="doc-title">Tesi Integrale</h3>
+      <p class="doc-desc">Il documento completo in formato PDF comprensivo di analisi e conclusioni.</p>
+      <div class="doc-actions">
+        <a href="javascript:void(0)" class="btn btn-outline" onclick="openModal('tesi')">Apri</a>
+        <a href="tesi.pdf" download class="btn btn-outline">Download</a>
+      </div>
+    </div>
+    
+    <div class="doc-card">
+      <div class="doc-icon">📊</div>
+      <h3 class="doc-title">Presentazione</h3>
+      <p class="doc-desc">Slide utilizzate durante la discussione finale della tesi.</p>
+      <div class="doc-actions">
+        <a href="javascript:void(0)" class="btn btn-outline" onclick="openModal('slides')">Apri</a>
+        <a href="presentazione_finale_tesi.pdf" download class="btn btn-outline">Download</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="modal-overlay" id="modal" onclick="closeModalOnOverlay(event)">
   <div class="modal">
@@ -64,6 +89,12 @@
     <iframe id="modal-iframe" src="" title="PDF viewer"></iframe>
   </div>
 </div>
+
+<footer>
+  <div class="footer-left">
+    <p>© 2026 <strong>Adolfo Torcicollo</strong> — Federico II</p>
+  </div>
+</footer>
 
 <script src="script.js"></script>
 </body>
