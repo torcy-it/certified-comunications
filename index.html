@@ -1,37 +1,75 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tesi | EviCertia Mobile</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comunicazioni Certificate — Adolfo Torcicollo</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <section class="project-detail">
-        <h1>EviCertia Mobile Ecosystem</h1>
-        <p class="subtitle">Tesi di Laurea in Ingegneria Informatica</p>
+<nav>
+  <span class="nav-logo">Torcicollo A. — UNINA</span>
+  <ul class="nav-links">
+    <li><a href="#abstract">Abstract</a></li>
+    <li><a href="#capitoli">Capitoli</a></li>
+    <li><a href="#tecnologie">Tecnologie</a></li>
+    <li><a href="#documenti">Documenti</a></li>
+  </ul>
+</nav>
 
-        <div class="content">
-            <h2>Abstract</h2>
-            <p>
-                Il progetto riguarda lo sviluppo di un'infrastruttura <strong>full-Swift</strong> per la comunicazione certificata... 
-                (Qui incolla la descrizione tecnica che abbiamo visto prima).
-            </p>
+<header class="hero">
+  <div class="hero-eyebrow"><span>Tesi di Laurea · Informatica</span></div>
+  <p class="hero-uni">Università degli Studi di Napoli Federico II</p>
+  <h1>Comunicazioni <em>Certificate</em></h1>
 
-            <div class="download-buttons">
-                <a href="documenti/Tesi_Adolfo_Torcicollo.pdf" target="_blank" class="btn-view">
-                    LEGGI LA TESI (PDF) ➔
-                </a>
-                
-                <a href="documenti/Presentazione_Tesi.pdf" target="_blank" class="btn-view">
-                    VEDI SLIDE (PDF) ➔
-                </a>
-            </div>
-        </div>
+  <div class="hero-meta">
+    <div class="meta-item">
+      <span class="meta-label">Studente</span>
+      <span class="meta-value">Adolfo Torcicollo</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Matricola</span>
+      <span class="meta-value">N86003538</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Relatore</span>
+      <span class="meta-value">Prof. Andrea Calì</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Dipartimento</span>
+      <span class="meta-value">DIETI</span>
+    </div>
+  </div>
 
-        <a href="index.html" style="margin-top: 40px; display: block; color: #666;">← Torna al Portfolio</a>
-    </section>
+  <div class="hero-cta">
+    <a href="#" class="btn btn-primary" onclick="openModal('tesi')">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Leggi la Tesi
+    </a>
+    <a href="#" class="btn btn-outline" onclick="openModal('slides')">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      Vedi Presentazione
+    </a>
+  </div>
+  <div class="scroll-hint">Scorri</div>
+</header>
 
+<div class="modal-overlay" id="modal" onclick="closeModalOnOverlay(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title" id="modal-title">DOCUMENTO</span>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <iframe id="modal-iframe" src="" title="PDF viewer"></iframe>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
