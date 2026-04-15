@@ -14,9 +14,15 @@ function openModal(key) {
   const modal = document.getElementById('modal');
   const iframe = document.getElementById('modal-iframe');
   
-  iframe.src = files[key];
+  // Aggiungiamo il parametro #view=FitH per forzare l'adattamento della larghezza
+  const pdfUrl = files[key] + "#view=FitH";
+  
+  iframe.src = pdfUrl;
   document.getElementById('modal-title').textContent = labels[key];
-  modal.classList.add('open');
+  
+  modal.style.display = 'flex'; // Usiamo flex per centrarla
+  setTimeout(() => modal.classList.add('open'), 10);
+  
   document.body.style.overflow = 'hidden';
 }
 
