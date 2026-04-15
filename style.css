@@ -1,14 +1,14 @@
-/* ── CONFIGURAZIONE VARIABILI (ISPIRATE A EVIMAIL) ── */
+/* ── CONFIGURAZIONE VARIABILI (ISPIRATE AL MOCKUP EVIMAIL) ── */
 :root {
-  --bg:          #f3f7f5; /* Sfondo principale grigio-verde chiarissimo */
-  --surface:     #ffffff; /* Bianco puro per le card */
-  --border:      #e2e8e4; /* Bordi sottili e chiari */
-  --accent:      #d7ede2; /* Il verde menta dei tasti e dei toggle */
-  --accent-dark: #5db38d; /* Verde più scuro per icone e stati attivi */
-  --text:        #000000; /* Nero pieno per i titoli */
-  --muted:       #606a64; /* Grigio fumo per i testi secondari */
-  --card-bg:     #eaf4ef; /* Sfondo delle aree tipo "Affidavit" */
-  --shadow:      0 4px 12px rgba(0,0,0,0.03);
+  --bg:          #f3f7f5; /* Sfondo pagina verde chiarissimo */
+  --surface:     #ffffff; /* Bianco per le card e la modale */
+  --border:      #e2e8e4; /* Bordi sottili */
+  --accent:      #d7ede2; /* Verde menta (pulsanti/toggle) */
+  --accent-dark: #5db38d; /* Verde scuro (icone/accenti) */
+  --text:        #000000; /* Nero per i titoli */
+  --muted:       #606a64; /* Grigio per i testi secondari */
+  --card-bg:     #eaf4ef; /* Sfondo aree tipo "Affidavit" */
+  --shadow:      0 10px 30px rgba(0,0,0,0.05);
 }
 
 /* ── RESET & BASE ── */
@@ -18,12 +18,19 @@
   padding: 0; 
 }
 
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'DM Sans', sans-serif; /* Pulito e moderno */
+  font-family: 'DM Sans', sans-serif;
   font-size: 15px;
   line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ── NAVIGAZIONE ── */
@@ -34,94 +41,83 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  padding: 0 clamp(1rem, 5vw, 4rem);
   height: 65px;
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
 
 .nav-logo {
   font-family: 'DM Mono', monospace;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--accent-dark);
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav-links a {
-  font-size: 13px;
-  color: var(--muted);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover { 
-  color: var(--text); 
 }
 
 /* ── HERO SECTION ── */
 .hero {
+  position: relative;
   padding: 120px clamp(1.5rem, 8vw, 8rem) 60px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.hero-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
-}
-
-.hero-eyebrow span {
+.hero-uni {
   font-family: 'DM Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   color: var(--accent-dark);
   text-transform: uppercase;
-  font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 h1 {
-  font-family: 'Inter', sans-serif; /* Passiamo a un Sans più simile al mockup */
-  font-size: clamp(2.5rem, 7vw, 5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  color: var(--text);
+  font-family: 'Cormorant Garamond', serif; /* Mantengo l'eleganza che avevi */
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
   margin-bottom: 2rem;
 }
 
 h1 em {
-  font-style: normal;
+  font-style: italic;
   color: var(--accent-dark);
 }
 
 .hero-meta {
   display: flex;
-  gap: 2.5rem;
-  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
 }
 
 .meta-label {
+  font-family: 'DM Mono', monospace;
   font-size: 10px;
   color: var(--muted);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  margin-bottom: 4px;
 }
 
 .meta-value {
-  font-weight: 600;
   font-size: 14px;
+  font-weight: 500;
+}
+
+.hero-cta {
+  margin-top: 3.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 /* ── BOTTONI ── */
@@ -129,8 +125,8 @@ h1 em {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.8rem 1.8rem;
-  border-radius: 12px; /* Angoli stondati tipici del mockup */
+  padding: 0.75rem 1.6rem;
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -141,82 +137,110 @@ h1 em {
 
 .btn-primary {
   background: var(--accent);
-  color: #1a3a2a; /* Testo scuro su fondo menta */
+  color: #1a3a2a;
 }
 
 .btn-primary:hover {
   background: #c5e5d5;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .btn-outline {
-  background: var(--surface);
+  background: transparent;
   color: var(--text);
   border: 1px solid var(--border);
 }
 
-/* ── GRIGLIA "AFFIDAVIT STYLE" ── */
-.chapters {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 4rem;
+.btn-outline:hover {
+  background: white;
 }
 
-.chapter-card {
+/* ── MODALE (FIX PER MOBILE) ── */
+.modal-overlay {
+  display: none; /* Gestito da JS tramite display: flex */
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  padding: env(safe-area-inset-top) 15px env(safe-area-inset-bottom);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 20px; /* Molto arrotondati */
-  padding: 2rem;
-  transition: all 0.2s;
-  box-shadow: var(--shadow);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 900px;
+  height: 85vh; /* Evita che tocchi i bordi su schermi piccoli */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Forza il contenuto (iframe) dentro i bordi */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.chapter-card:hover {
-  border-color: var(--accent-dark);
-  background: var(--card-bg);
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.chapter-num {
-  font-size: 12px;
+.modal-header {
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface);
+}
+
+.modal-title {
   font-family: 'DM Mono', monospace;
-  color: var(--accent-dark);
-  margin-bottom: 1rem;
-  display: block;
-}
-
-.chapter-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.chapter-desc {
-  font-size: 14px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
   color: var(--muted);
 }
 
-/* ── ELEMENTI UI SPECIFICI (Toggle/Input) ── */
-.ui-mockup-toggle {
-  width: 44px;
-  height: 24px;
+.modal-close {
   background: var(--accent);
-  border-radius: 100px;
-  position: relative;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
 }
 
-.ui-mockup-toggle::after {
-  content: '';
-  position: absolute;
-  right: 4px; top: 4px;
-  width: 16px; height: 16px;
-  background: white;
-  border-radius: 50%;
+/* IFRAME PDF FIX */
+#modal-iframe {
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  /* Supporto per scrolling fluido su iPhone */
+  -webkit-overflow-scrolling: touch; 
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 4rem clamp(1.5rem, 8vw, 8rem);
+  border-top: 1px solid var(--border);
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
 }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  h1 { font-size: 3rem; }
+@media (max-width: 640px) {
+  h1 { font-size: 2.5rem; }
   .hero { padding-top: 100px; }
+  .modal { height: 90vh; border-radius: 20px; }
+  .hero-meta { gap: 1rem; }
 }
