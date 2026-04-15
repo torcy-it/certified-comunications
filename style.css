@@ -1,14 +1,19 @@
-/* ── CONFIGURAZIONE VARIABILI (ISPIRATE AL MOCKUP EVIMAIL) ── */
+/* ── CONFIGURAZIONE VARIABILI (ESTRATTE DAL MOCKUP) ── */
 :root {
-  --bg:          #f3f7f5; /* Sfondo pagina verde chiarissimo */
-  --surface:     #ffffff; /* Bianco per le card e la modale */
-  --border:      #e2e8e4; /* Bordi sottili */
-  --accent:      #d7ede2; /* Verde menta (pulsanti/toggle) */
-  --accent-dark: #5db38d; /* Verde scuro (icone/accenti) */
-  --text:        #000000; /* Nero per i titoli */
-  --muted:       #606a64; /* Grigio per i testi secondari */
-  --card-bg:     #eaf4ef; /* Sfondo aree tipo "Affidavit" */
-  --shadow:      0 10px 30px rgba(0,0,0,0.05);
+  --bg:          #FFFFFF;    /* Sfondo bianco pulito come nel mockup */
+  --surface:     #f4f7f6;    /* Grigio chiarissimo per i campi inattivi */
+  --border:      #e2e8e4;    /* Bordi sottili */
+  
+  /* IL VERDE MENTA DI EVIMAIL */
+  --accent:      #d6ede2;    /* Verde menta chiaro (pulsante 'Content', toggle ON) */
+  --accent-dark: #4b8a6e;    /* Verde scuro per testi su fondo menta */
+  
+  /* GRIGI UI */
+  --text:        #000000;    /* Nero puro per i titoli (New EviMail) */
+  --muted:       #7a827e;    /* Grigio per label (Cc, From, Subject) */
+  --inactive:    #eeeeee;    /* Grigio pulsanti non selezionati */
+  
+  --shadow:      0 8px 24px rgba(0,0,0,0.04);
 }
 
 /* ── RESET & BASE ── */
@@ -18,18 +23,12 @@
   padding: 0; 
 }
 
-html {
-  scroll-behavior: smooth;
-  height: 100%;
-}
-
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 15px;
-  line-height: 1.6;
-  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* Font nativo iOS */
+  font-size: 16px;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -41,206 +40,148 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 clamp(1rem, 5vw, 4rem);
-  height: 65px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
+  padding: 0 20px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
 
 .nav-logo {
-  font-family: 'DM Mono', monospace;
-  font-size: 12px;
-  color: var(--accent-dark);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
 }
 
-/* ── HERO SECTION ── */
+/* ── HERO / HEADER ── */
 .hero {
-  position: relative;
-  padding: 120px clamp(1.5rem, 8vw, 8rem) 60px;
-  max-width: 1200px;
+  padding: 100px 24px 40px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
-.hero-uni {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  color: var(--accent-dark);
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
 h1 {
-  font-family: 'Cormorant Garamond', serif; /* Mantengo l'eleganza che avevi */
-  font-size: clamp(2.8rem, 8vw, 5.5rem);
-  font-weight: 300;
-  line-height: 1.0;
+  font-size: 34px; /* Dimensione tipica iOS Title */
+  font-weight: 700;
   letter-spacing: -0.02em;
-  margin-bottom: 2rem;
-}
-
-h1 em {
-  font-style: italic;
-  color: var(--accent-dark);
+  margin-bottom: 24px;
 }
 
 .hero-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 2.5rem;
-}
-
-.meta-item {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  gap: 12px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 20px;
 }
 
 .meta-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
   color: var(--muted);
-  text-transform: uppercase;
-  margin-bottom: 4px;
+  font-size: 14px;
 }
 
 .meta-value {
-  font-size: 14px;
+  color: var(--accent-dark);
   font-weight: 500;
 }
 
-.hero-cta {
-  margin-top: 3.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-/* ── BOTTONI ── */
+/* ── BOTTONI (STILE MOCKUP) ── */
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.75rem 1.6rem;
-  border-radius: 12px;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 14px; /* Angoli molto stondati */
   font-size: 14px;
   font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
   transition: all 0.2s;
   border: none;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .btn-primary {
   background: var(--accent);
-  color: #1a3a2a;
-}
-
-.btn-primary:hover {
-  background: #c5e5d5;
-  transform: translateY(-2px);
+  color: var(--accent-dark);
 }
 
 .btn-outline {
-  background: transparent;
-  color: var(--text);
-  border: 1px solid var(--border);
+  background: var(--inactive);
+  color: var(--muted);
 }
 
-.btn-outline:hover {
-  background: white;
-}
-
-/* ── MODALE (FIX PER MOBILE) ── */
+/* ── MODALE (FIX LARGHEZZA PDF) ── */
 .modal-overlay {
-  display: none; /* Gestito da JS tramite display: flex */
+  display: none;
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-  padding: env(safe-area-inset-top) 15px env(safe-area-inset-bottom);
-  align-items: center;
+  background: rgba(0, 0, 0, 0.3); /* Overlay più chiaro come iOS */
+  backdrop-filter: blur(4px);
+  padding: 20px;
+  align-items: flex-end; /* Si apre dal basso su mobile */
   justify-content: center;
 }
 
-.modal {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  width: 100%;
-  max-width: 900px;
-  height: 85vh; /* Evita che tocchi i bordi su schermi piccoli */
-  display: flex;
-  flex-direction: column;
-  overflow: hidden; /* Forza il contenuto (iframe) dentro i bordi */
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+@media (min-width: 768px) {
+  .modal-overlay { align-items: center; }
 }
 
-@keyframes modalIn {
-  from { opacity: 0; transform: translateY(20px) scale(0.98); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+.modal {
+  background: var(--bg);
+  border-radius: 24px 24px 24px 24px;
+  width: 100%;
+  max-width: 900px;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .modal-header {
-  padding: 1.2rem 1.5rem;
+  padding: 16px 20px;
+  background: var(--surface); /* Header grigio come nel mockup */
   border-bottom: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--surface);
 }
 
 .modal-title {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  color: var(--muted);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
 }
 
 .modal-close {
-  background: var(--accent);
+  background: #e5e5e5;
   border: none;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
+  font-size: 12px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
 }
 
-/* IFRAME PDF FIX */
+/* ── IL FIX PER IL PDF ── */
 #modal-iframe {
   flex-grow: 1;
   width: 100%;
   height: 100%;
   border: none;
-  display: block;
-  /* Supporto per scrolling fluido su iPhone */
-  -webkit-overflow-scrolling: touch; 
+  /* Questi bloccano la fuoriuscita del PDF su iPhone */
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* ── FOOTER ── */
 footer {
-  padding: 4rem clamp(1.5rem, 8vw, 8rem);
-  border-top: 1px solid var(--border);
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  padding: 40px 24px;
+  text-align: center;
+  font-size: 13px;
   color: var(--muted);
-  text-transform: uppercase;
-}
-
-/* ── RESPONSIVE ── */
-@media (max-width: 640px) {
-  h1 { font-size: 2.5rem; }
-  .hero { padding-top: 100px; }
-  .modal { height: 90vh; border-radius: 20px; }
-  .hero-meta { gap: 1rem; }
+  background: var(--surface);
 }
