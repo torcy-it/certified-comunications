@@ -8,8 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -20,7 +19,6 @@
 <header class="hero">
   <p class="hero-uni">Università degli Studi di Napoli Federico II</p>
   <h1>Comunicazioni <em>Certificate</em></h1>
-
   <div class="hero-meta">
     <div class="meta-item">
       <span class="meta-label">Studente</span>
@@ -31,29 +29,24 @@
       <span class="meta-value">Prof. Andrea Calì</span>
     </div>
   </div>
-
   <div class="hero-cta">
-    <a href="javascript:void(0)" class="btn btn-primary" onclick="openModal('tesi')">
-      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+    <a href="tesi.html" class="btn btn-primary">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+      </svg>
       Leggi la Tesi
     </a>
-    <a href="javascript:void(0)" class="btn btn-outline" onclick="openModal('slides')">
-      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    <a href="slides.html" class="btn btn-outline">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <rect x="2" y="3" width="20" height="14" rx="2"/>
+        <line x1="8" y1="21" x2="16" y2="21"/>
+        <line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
       Vedi Presentazione
     </a>
   </div>
 </header>
-
-
-<div class="modal-overlay" id="modal" onclick="closeModalOnOverlay(event)">
-  <div class="modal">
-    <div class="modal-header">
-      <span class="modal-title" id="modal-title">DOCUMENTO</span>
-      <button class="modal-close" onclick="closeModal()">✕</button>
-    </div>
-    <iframe id="modal-iframe" src="" title="PDF viewer"></iframe>
-  </div>
-</div>
 
 <footer>
   <div class="footer-left">
@@ -61,6 +54,5 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
